@@ -15,4 +15,16 @@ public class AmmoMovement : MonoBehaviour
     {
         Rb.AddForce(transform.forward * -speed, ForceMode.VelocityChange);
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+
+        if (other.CompareTag("Enemy"))
+        {
+            Debug.Log("Hit");
+            Destroy(gameObject);
+        }
+
+
+    }
 }
