@@ -21,7 +21,7 @@ public class AmmoMovement : MonoBehaviour
 
         if (other.CompareTag("Enemy"))
         {
-            Debug.Log("Hit");
+            //Debug.Log("Hit");
             Destroy(gameObject);
         }
 

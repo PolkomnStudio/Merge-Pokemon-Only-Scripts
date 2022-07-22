@@ -959,6 +959,7 @@ MonoBehaviour:
   GunPoint: {fileID: 1269127726}
   AmmoPrefab: {fileID: 4564082157540585130, guid: e0c11904aa5020640b9f7875c2aa16c0,
     type: 3}
+  sceneController: {fileID: 1066603219}
 --- !u!1 &239645235
 GameObject:
   m_ObjectHideFlags: 0
@@ -2746,6 +2747,7 @@ MonoBehaviour:
   - {fileID: 2078874234}
   - {fileID: 1324521204}
   GameOverPanel: {fileID: 2011466388}
+  AttackBtnText: {fileID: 1349615450}
 --- !u!4 &1066603220
 Transform:
   m_ObjectHideFlags: 0
@@ -3492,7 +3494,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 5
+  m_Text: 
 --- !u!222 &1349615451
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3923,7 +3925,7 @@ GameObject:
   - component: {fileID: 1676669477}
   - component: {fileID: 1676669476}
   m_Layer: 5
-  m_Name: Ammo
+  m_Name: Attack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

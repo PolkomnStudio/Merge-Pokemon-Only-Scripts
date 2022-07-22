@@ -9,18 +9,7 @@ public class Player : MonoBehaviour
     [SerializeField] private float RMaxRange;
     [SerializeField] private Transform GunPoint;
     [SerializeField] private GameObject AmmoPrefab;
-
-
-    void Start()
-    {
-        
-    }
-
-    
-    void Update()
-    {
-        
-    }
+    [SerializeField] private SceneController sceneController;
 
     public void LeftMove()
     {
@@ -42,5 +31,6 @@ public class Player : MonoBehaviour
     public void Attack()
     {
         Instantiate(AmmoPrefab, GunPoint.position, GunPoint.rotation);
+        sceneController.AmmoDev();
     }
 }

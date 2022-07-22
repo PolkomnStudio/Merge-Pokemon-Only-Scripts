@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class SceneController : MonoBehaviour
@@ -11,21 +12,29 @@ public class SceneController : MonoBehaviour
     [SerializeField] private Transform[] EnemyPoint_1Wave;
     [SerializeField] private Transform[] EnemyPoint_2Wave;
     [SerializeField] private GameObject GameOverPanel;
+    [SerializeField] private Text AttackBtnText;
+    //[SerializeField] private int AmmoSum;
+
+    public int AmmoSum { get; private set; }
 
     private void Awake()
     {
         StartRespawnEnemy1Wave();
         StartRespawnEnemy2Wave();
-        RespawnEnemy();
+        //RespawnEnemy();
         enemy = GameObject.FindGameObjectsWithTag("Enemy");
         
     }
-    void Start()
+    
+    public void AmmoDev()
     {
+        if (AmmoSum != 0)
+        {
+            AmmoSum--;
+            AttackBtnText.text = AmmoSum.ToString();
+        }
         
-    }
-
-
+    } 
     public void ClickScaner()
     {
         StartCoroutine(VisibleObjects());
@@ -38,6 +47,7 @@ public class SceneController : MonoBehaviour
     IEnumerator VisibleObjects()
     {
         enemy = GameObject.FindGameObjectsWithTag("Enemy");
+        AmmoSum = 0;
 
         foreach (GameObject respawn in enemy)
         {
@@ -53,9 +63,12 @@ public class SceneController : MonoBehaviour
             color1.a = 1f;
             material1.color = color1;
 
-            //}
-
+            var EnemyHPtext = respawn.GetComponentInChildren<TextMesh>();
+            var EnemyHP = EnemyHPtext.text;
+            int HP = int.Parse(EnemyHP);
+            AmmoSum += HP;
         }
+        AttackBtnText.text = AmmoSum.ToString();
         yield return null;
         Invoke("UnvisibleCorotine", 3f);
 
