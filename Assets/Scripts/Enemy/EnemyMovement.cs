@@ -40,20 +40,41 @@ public class EnemyMovement : MonoBehaviour
 
     void EnemyDestroy()
     {
-        gameObject.SetActive(false);
+        Destroy(gameObject);
+        //gameObject.SetActive(false);
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Ammo"))
         {
-            Debug.Log("Ammo");
+            //Debug.Log("Ammo");
             HitEvent();
-            //EnemyHPTextConv();
+            EnemyHPTextConv();
+        }
+    }
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.CompareTag("Wall"))
+        {
+            transform.gameObject.tag = "Untagged";
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Wall"))
+        {
+            transform.gameObject.tag = "Enemy";
         }
     }
     void FixedUpdate()
     {
-        Rb.AddForce(transform.forward * -speed, ForceMode.Force);
+        Move();
+    }
+
+    private void Move()
+    {
+        Rb.AddForce(transform.forward * -speed, ForceMode.VelocityChange);
     }
 }

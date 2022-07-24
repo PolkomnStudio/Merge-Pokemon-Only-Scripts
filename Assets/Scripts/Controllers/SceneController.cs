@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System;
+
 
 public class SceneController : MonoBehaviour
 {
@@ -13,17 +15,20 @@ public class SceneController : MonoBehaviour
     [SerializeField] private Transform[] EnemyPoint_2Wave;
     [SerializeField] private GameObject GameOverPanel;
     [SerializeField] private Text AttackBtnText;
+    [SerializeField] private Text ScanerBtnText;
+    private bool TriggerEvent = false;
+    
     //[SerializeField] private int AmmoSum;
 
     public int AmmoSum { get; private set; }
-
+    public float ScanerCD { get; private set; }
     private void Awake()
     {
         StartRespawnEnemy1Wave();
-        StartRespawnEnemy2Wave();
-        //RespawnEnemy();
+        //StartRespawnEnemy2Wave();
+        RespawnEnemy();
         enemy = GameObject.FindGameObjectsWithTag("Enemy");
-        
+        ScanerCD = 5f;
     }
     
     public void AmmoDev()
@@ -37,40 +42,58 @@ public class SceneController : MonoBehaviour
     } 
     public void ClickScaner()
     {
-        StartCoroutine(VisibleObjects());
+        if (!TriggerEvent)
+        {
+            
+            StartCoroutine(VisibleObjects());
+        }
+
     }
     public void UnvisibleCorotine()
     {
         StartCoroutine(UnVisibleObjects());
     }
 
+    private void ChangeTriggerEvent()
+    {
+        TriggerEvent = false;
+        ScanerCD = 5f;
+    }
     IEnumerator VisibleObjects()
     {
-        enemy = GameObject.FindGameObjectsWithTag("Enemy");
-        AmmoSum = 0;
-
-        foreach (GameObject respawn in enemy)
+        if (!TriggerEvent)
         {
-            //for (float ft = 0f; ft <= 1; ft += 0.25f)
-            //{
-            var material = respawn.GetComponent<Renderer>().material;
-            var color = material.color;
-            color.a = 1f;
-            material.color = color;
+            enemy = GameObject.FindGameObjectsWithTag("Enemy");
+            AmmoSum = 0;
+            ScanerBtnText.gameObject.SetActive(true);
+            TriggerEvent = true;
+            
 
-            var material1 = respawn.GetComponentInChildren<TextMesh>();
-            var color1 = material1.color;
-            color1.a = 1f;
-            material1.color = color1;
+            foreach (GameObject respawn in enemy)
+            {
+                //for (float ft = 0f; ft <= 1; ft += 0.25f)
+                //{
+                var material = respawn.GetComponent<Renderer>().material;
+                var color = material.color;
+                color.a = 1f;
+                material.color = color;
 
-            var EnemyHPtext = respawn.GetComponentInChildren<TextMesh>();
-            var EnemyHP = EnemyHPtext.text;
-            int HP = int.Parse(EnemyHP);
-            AmmoSum += HP;
+                var material1 = respawn.GetComponentInChildren<TextMesh>();
+                var color1 = material1.color;
+                color1.a = 1f;
+                material1.color = color1;
+
+                var EnemyHPtext = respawn.GetComponentInChildren<TextMesh>();
+                var EnemyHP = EnemyHPtext.text;
+                int HP = int.Parse(EnemyHP);
+                AmmoSum += HP;
+            }
+            AttackBtnText.text = AmmoSum.ToString();
+            yield return null;
+            Invoke("UnvisibleCorotine", 1.5f);
+            
         }
-        AttackBtnText.text = AmmoSum.ToString();
-        yield return null;
-        Invoke("UnvisibleCorotine", 3f);
+        
 
     }
 
@@ -90,11 +113,36 @@ public class SceneController : MonoBehaviour
             var color1 = material1.color;
             color1.a = 0f;
             material1.color = color1;
-
             // }
         }
         yield return null;
+        
 
+    }
+
+    private void UpdateTimer()
+    {
+        ScanerCD -= Time.deltaTime;
+        if (ScanerCD <= 0.0f)
+        {
+            ScanerBtnText.gameObject.SetActive(false);
+            ChangeTriggerEvent();
+            
+        }
+        else
+        {
+            ScanerBtnText.text = Mathf.RoundToInt(ScanerCD).ToString();
+        }
+        
+
+    }
+
+    private void Update()
+    {
+       if (TriggerEvent)
+       {
+            UpdateTimer();
+       }
     }
 
     public void GameOver()
@@ -114,7 +162,7 @@ public class SceneController : MonoBehaviour
 
     private void StartRespawnEnemy1Wave()
     {
-        int NumEnemy = Random.Range(1, 11);
+        int NumEnemy = UnityEngine.Random.Range(1, 11);
         //Debug.Log(NumEnemy);
         switch (NumEnemy)
         {
@@ -186,7 +234,7 @@ public class SceneController : MonoBehaviour
 
     private void StartRespawnEnemy2Wave()
     {
-        int NumEnemy = Random.Range(1, 11);
+        int NumEnemy = UnityEngine.Random.Range(1, 11);
        // Debug.Log(NumEnemy);
         switch (NumEnemy)
         {
@@ -258,7 +306,7 @@ public class SceneController : MonoBehaviour
 
     public void RespawnEnemy()
     {
-        int NumEnemy = Random.Range(1, 11);
+        int NumEnemy = UnityEngine.Random.Range(1, 11);
         //Debug.Log(NumEnemy);
         switch (NumEnemy)
         {

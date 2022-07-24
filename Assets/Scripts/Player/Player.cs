@@ -30,7 +30,11 @@ public class Player : MonoBehaviour
    
     public void Attack()
     {
-        Instantiate(AmmoPrefab, GunPoint.position, GunPoint.rotation);
-        sceneController.AmmoDev();
+        if (sceneController.AmmoSum != 0)
+        {
+            Instantiate(AmmoPrefab, GunPoint.position, GunPoint.rotation);
+            sceneController.AmmoDev();
+        }
+        
     }
 }
