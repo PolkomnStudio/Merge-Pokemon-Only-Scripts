@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class AmmoMovement : MonoBehaviour
 {
-    [SerializeField] private float speed;
-    Rigidbody Rb;
+    private float _speed = 0.1f;
+    private Rigidbody _rb;
 
     private void Start()
     {
-        Rb = GetComponent<Rigidbody>();
+        _rb = GetComponent<Rigidbody>();
     }
     void FixedUpdate()
     {
-        Rb.AddForce(transform.forward * -speed, ForceMode.VelocityChange);
+        _rb.AddForce(transform.forward * -_speed, ForceMode.VelocityChange);
     }
 
     private void OnTriggerEnter(Collider other)
