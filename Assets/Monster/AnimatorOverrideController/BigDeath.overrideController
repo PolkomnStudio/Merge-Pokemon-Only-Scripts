@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: BigDeath
+  m_Controller: {fileID: 9100000, guid: 8c1b1365aac78ef4693e354a54c4ba45, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: c48a3fa09a43bd247bb0f2bb3a12005a, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: fc2cff9c28bbd294e80d2d92d8a53f4b, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 4afba42ff86d8ed46a07c14ed594b401, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: a099bee46c00967498c68f5c5222221a, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 025720861a12f4445a260b19e8f6a39e, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 86ca224b359f6c849b3cf734a9a2ecd5, type: 2}

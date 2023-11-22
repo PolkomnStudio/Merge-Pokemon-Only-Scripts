@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: BigMonster
+  m_Controller: {fileID: 9100000, guid: 8c1b1365aac78ef4693e354a54c4ba45, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: c48a3fa09a43bd247bb0f2bb3a12005a, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: aeface2f2fde8ca459722c0b3f4dfb74, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 4afba42ff86d8ed46a07c14ed594b401, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 95b547bb94d908943bd09e3671478048, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 025720861a12f4445a260b19e8f6a39e, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 57281628ecabeb8478db01c419d5fbe4, type: 2}

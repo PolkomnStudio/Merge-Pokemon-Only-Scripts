@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: MediumDog
+  m_Controller: {fileID: 9100000, guid: 8c1b1365aac78ef4693e354a54c4ba45, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 4afba42ff86d8ed46a07c14ed594b401, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: da5ef5067fc956a43a91398354bd20d1, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 025720861a12f4445a260b19e8f6a39e, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 4e066cc69a5f8d443ac9fc05fa1f2608, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: c48a3fa09a43bd247bb0f2bb3a12005a, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: a8546cb0cbc1bd948927983a4f448f9c, type: 2}
