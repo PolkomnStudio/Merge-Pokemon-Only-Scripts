@@ -5772,6 +5772,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4698873795363480}
   - component: {fileID: 135029023472699235}
+  - component: {fileID: 5038329263281511777}
+  - component: {fileID: 718671344960166765}
   m_Layer: 19
   m_Name: 059_TerraTerror Visual
   m_TagString: Untagged
@@ -5787,7 +5789,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1400057252610855}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -5795,7 +5797,7 @@ Transform:
   - {fileID: 4462848534675086}
   - {fileID: 4297404125596788}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: -0}
 --- !u!135 &135029023472699235
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -5817,6 +5819,48 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 1.25
   m_Center: {x: 0, y: 0.25, z: 0}
+--- !u!54 &5038329263281511777
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1400057252610855}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &718671344960166765
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1400057252610855}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0515427431a57ee468b1d26ae2b96d91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationEvent: {fileID: 3571303033894958256}
+  _enemyHPText: {fileID: 0}
+  EnemyHP: 30
 --- !u!1 &1450515758349102
 GameObject:
   m_ObjectHideFlags: 0
